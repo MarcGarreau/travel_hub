@@ -25,3 +25,6 @@ gem 'rails_12factor', group: :production
 
 gem 'rspec-rails', group: :test
 gem 'pry'
+gem 'omniauth'
+gem 'omniauth-instagram'
+gem 'figaro'
