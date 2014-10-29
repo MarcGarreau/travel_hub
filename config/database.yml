@@ -1,17 +1,17 @@
 production:
-  adapter: postgresql
-  encoding: unicode
-  database: travel_hub
-  pool: 5
+ adapter: postgresql
+ encoding: unicode
+ database: travel_hub_production
+ pool: 5
 
 development:
-  adapter: postgresql
-  encoding: unicode
-  database: travel_hub_development
-  pool: 5
+ adapter: postgresql
+ encoding: unicode
+ database: travel_hub_development
+ pool: 5
 
 test:
-  adapter: postgresql
-  encoding: unicode
-  database: travel_hub_test
-  pool: 5
+ adapter: postgresql
+ encoding: unicode
+ database: travel_hub_test
+ pool: 5
