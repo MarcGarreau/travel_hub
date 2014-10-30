@@ -30,4 +30,11 @@ RSpec.describe Trip, type: :model do
     trip = Trip.create(title: "Oh Canada!", start_date: "2014-10-30", end_date: "2014-11-03")
     expect(trip.format_end_date).to eq("Nov 03, 2014")
   end
+
+  it "knows its user" do
+    user = User.create(name: "Boogly-Boo", nickname: "boo-boo")
+    trip = Trip.create(title: "Oh Canada!", start_date: "2014-10-30", end_date: "2014-11-03", user_id: user.id)
+
+    expect(trip.user.name).to eq("Boogly-Boo")
+  end
 end
