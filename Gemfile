@@ -28,3 +28,8 @@ gem 'pry'
 gem 'omniauth'
 gem 'omniauth-instagram'
 gem 'figaro'
+
+group :test do
+  gem 'capybara'
+  gem 'selenium-webdriver'
+end
