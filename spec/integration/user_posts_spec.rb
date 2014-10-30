@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe "User" do
-  let(:user) { User.create!(first_name: "John", last_name: "Doe") }
+  let(:user) { User.create!(name: "John Doe") }
   let(:post) { Post.create!(user_id: user.id, properties: {twitter_url: "http://twitter.com", tweet_date: "10/28/2014"}) }
 
   it "has an associated post" do

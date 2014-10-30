@@ -2,9 +2,13 @@ module FeatureHelper
   def mock_auth
     OmniAuth.config.mock_auth[:instagram] = OmniAuth::AuthHash.new({
       provider: 'instagram',
-      uid: '12345',
-      name: 'boogly-boo',
-      nickname: 'boo-boo'
+      uid: '123456',
+      info:
+        {
+          name:     'boogly-boo',
+          nickname: 'boo',
+          image:    'http://image.google.com/something.jpg'
+        }
     })
   end
 
