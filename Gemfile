@@ -28,6 +28,8 @@ gem 'pry'
 gem 'omniauth'
 gem 'omniauth-instagram'
 gem 'figaro'
+gem 'httparty'
+gem 'instagram'
 
 group :test do
   gem 'capybara'
