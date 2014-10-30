@@ -8,7 +8,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
-gem 'pg'
+
 # Use jquery as the JavaScript library
 
 gem 'jquery-rails'
@@ -25,3 +25,11 @@ gem 'rails_12factor', group: :production
 
 gem 'rspec-rails', group: :test
 gem 'pry'
+gem 'omniauth'
+gem 'omniauth-instagram'
+gem 'figaro'
+
+group :test do
+  gem 'capybara'
+  gem 'selenium-webdriver'
+end

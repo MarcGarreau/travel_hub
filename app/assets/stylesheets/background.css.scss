@@ -5,6 +5,19 @@
   background-size: cover;
   z-index: -100;
 }
+.top_background {
+  width: 100%;
+  height: 95%;
+  border-bottom: solid;
+  border-width: 1px;
+  border-color: gray;
+  position: fixed;
+  background-size: cover;
+  z-index: -100;
+}
 .root_media {
-  background-image: image-url("sunset.jpg");
+  background-image: image-url("balloon.jpg");
+}
+.solid_background {
+  background: white;
 }
