@@ -27,7 +27,8 @@ class SessionsController < ApplicationController
       new_post.properties = hash
     end
 
-    redirect_to root_path, notice: "Welcome"
+    redirect_to feed_path
+
   end
 
   def destroy
