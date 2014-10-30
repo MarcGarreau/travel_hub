@@ -6,6 +6,7 @@
 @import "background";
 @import "home";
 @import "menu";
+@import "feed";
 
 body {
   padding: 0;
@@ -43,7 +44,7 @@ body {
 }
 .navigation {
   background: $light_gray;
-  font-size: 4rem;
+  font-size: 3rem;
   position: fixed;
   width: 100%;
   padding: 1rem 0;
@@ -57,6 +58,13 @@ body {
 .navigation .options_link {
   margin-left: 5%;
 }
+.floater_4 {
+  height: 120px;
+}
 .text_divider {
   padding: 0 2rem;
+}
+.full_width {
+  width: 90%;
+  height: 180px;
 }
