@@ -9,8 +9,14 @@
   <link href='http://fonts.googleapis.com/css?family=Delius' rel='stylesheet' type='text/css'>
 </head>
 <body>
-
-<%= yield %>
+  <% if flash.any? %>
+    <div id="flash">
+      <% flash.each do |key, value| -%>
+        <div id="flash_<%= key %>"><%= value %></div>
+      <% end -%>
+    </div>
+  <% end %>
+  <%= yield %>
 
 </body>
 </html>
