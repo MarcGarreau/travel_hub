@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   has_many :posts
+  has_many :trips
 
   def self.from_omniauth(auth)
     where(auth).first_or_create do |user|
