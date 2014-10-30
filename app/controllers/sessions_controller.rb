@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
       hash["place_name"]   = post["location"]["name"]
       hash["url"]          = post["images"]["standard_resolution"]["url"]
       hash["caption"]      = post["caption"]["text"]
-      hash["created_date"] = post["caption"]["created_time"]
+      hash["created_date"] = Time.at(post["caption"]["created_time"].to_i).to_datetime
 
       new_post.properties = hash
     end
