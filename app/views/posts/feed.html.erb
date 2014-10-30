@@ -1,0 +1,15 @@
+<div class="navigation">
+  <%= link_to "#" do %>
+    <div class="text link_to">All</div>
+  <% end %>
+  <div class="text_divider">|</div>
+  <div class="text">Latest Activity</div>
+</div>
+
+<% @posts.each do |post| %>
+  <div class="shared_user_data">
+    <%= image_tag "sally.jpg", class:"profile_picture left" %>
+    <div class="profile_name"><%= "Sally Winterman" %> </div>
+    <%= image_tag post.picture.url, class:"post_image" %>
+  </div>
+<% end %>
