@@ -1,0 +1,28 @@
+.menu_background {
+  background: rgba(247, 75, 8, 1);
+}
+.menu_title {
+  font-size: 6rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  color: white;
+}
+.menu_button {
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 200;
+  letter-spacing: 2px;
+  border: solid;
+  border-width: 1px;
+  border-radius: 15px;
+  border-color: white;
+  background: white;
+  width: 75%;
+  padding: 2rem 0;
+  color: black;
+  margin-left: 12%;
+}
+.push_10 {
+  width: 100%;
+  height: 10rem;
+}
