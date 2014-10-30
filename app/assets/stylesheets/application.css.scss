@@ -2,8 +2,10 @@
  *= require_tree .
  *= require_self
  */
+@import "variables";
 @import "background";
 @import "home";
+
 body {
   padding: 0;
   margin: 0;
@@ -13,6 +15,9 @@ body {
 }
 .container {
   width: 100%;
+}
+.left {
+  float:left;
 }
 .link_to {
   text-decoration: none;
@@ -34,4 +39,23 @@ body {
   height: 35rem;
   background-size: cover;
   background-position: center;
+}
+.navigation {
+  background: $light_gray;
+  font-size: 4rem;
+  position: fixed;
+  width: 100%;
+  padding: 1rem 0;
+  border-bottom: solid;
+  border-color: silver;
+  color: $function_color;
+}
+.navigation .link_to {
+  color: $function_color;
+}
+.navigation .options_link {
+  margin-left: 5%;
+}
+.text_divider {
+  padding: 0 2rem;
 }
