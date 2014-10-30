@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
                                                         }).permit(:provider, :uid, :name, :nickname, :image)
     user              = User.from_omniauth(auth_params)
     session[:user_id] = user.id
-    redirect_to root_path, notice: "Welcome"
+    redirect_to feed_path
   end
 
   def destroy
