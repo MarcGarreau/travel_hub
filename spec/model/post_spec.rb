@@ -14,4 +14,10 @@ describe Post, type: :model do
     expect(post.properties["tweet_date"]).to eq("10/27/2014")
     expect(post).to be_valid
   end
+
+  it "builds upon first login" do
+    user     = User.create!(name: "Joe Shmoe", nickname: "joe")
+    Post.login_post_builder(instagram_api_response, user)
+    expect(user.posts.count).to eq 2
+  end
 end
