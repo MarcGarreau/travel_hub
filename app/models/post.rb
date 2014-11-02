@@ -16,6 +16,7 @@ class Post < ActiveRecord::Base
       new_post_attrs["created_date"] = Time.at(post["caption"]["created_time"].to_i).to_datetime
 
       new_post.properties = new_post_attrs
+      new_post.source     = "Instagram"
     end
     user.save
   end
