@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20141102010330) do
 
   # These are extensions that must be enabled in order to support this database
@@ -24,15 +23,6 @@ ActiveRecord::Schema.define(version: 20141102010330) do
     t.datetime "updated_at"
     t.hstore   "properties"
     t.string   "source"
-  end
-
-  create_table "trips", force: true do |t|
-    t.string   "title"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "trips", force: true do |t|

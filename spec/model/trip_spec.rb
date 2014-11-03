@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Trip, type: :model do
-  let(:trip) { Trip.create( title:      "Vegas Baby!, Baby?, Uh oh.",
+  let(:trip) { Trip.create( id:          98, 
+                            title:      "Vegas Baby! Baby? Uh oh.",
                             start_date: "2014-10-30",
                             end_date:   "2014-11-10",
                             user_id:    1 ) }
