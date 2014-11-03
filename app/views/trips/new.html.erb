@@ -3,26 +3,36 @@
   <div class="title_container">
     <div class="menu_title">Create New Trip</div>
   </div>
-  <div class="new_trip_form">
-    <%= form_for(@trip) do |f| %>
-      <div class="field">
-        <%= f.label :trip_name %>:
-        <%= f.text_field :title %>
-      </div>
-      <div class="field">
-        <%= f.label :start_date %>:
-        <%= f.date_field :start_date %>
-      </div>
-      <div class="field">
-        <%= f.label :end_date %>:
-        <%= f.date_field :end_date %>
-      </div>
-      <div class="field">
-        <%= f.hidden_field :user_id, :value => params[@user.id] %>
-      </div
-      <div class="actions">
-        <%= f.submit "Create Trip"  %>
-      </div>
-    <% end %>
+  <div class="col-lg-6 col-lg-offset-3">
+    <div class="new_trip_form">
+      <%= form_for @trip do |f| %>
+        <% if @trip.errors.any? %>
+          <ul id="errors">
+            <% @trip.errors.full_messages.each do |error| %>
+              <li>
+                <%= error %>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+        <div class="form">
+          <%= f.label :trip_name%>:
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
+        <div class="form">
+          <%= f.label :start_date %>:
+          <%= f.date_field :start_date, class: "form-control" %>
+        </div>
+        <div class="form">
+          <%= f.label :end_date %>:
+          <%= f.date_field :end_date, class: "form-control" %>
+        </div>
+        <div class="form">
+          <%= f.hidden_field :user_id, :value => @current_user.id %>
+        </div>
+        <br/>
+        <%= f.submit "Create Trip", class: "btn btn-large btn-default" %>
+      <% end %>
+    </div>
   </div>
 </div>

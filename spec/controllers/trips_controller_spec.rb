@@ -28,7 +28,7 @@ RSpec.describe TripsController, type: :controller do
         trip_attributes
         post :create, trip: @attributes
 
-        expect(response).to redirect_to(Trip.last)
+        expect(response).to redirect_to feed_path
       end
     end
 
