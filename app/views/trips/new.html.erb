@@ -28,7 +28,7 @@
           <%= f.date_field :end_date, class: "form-control" %>
         </div>
         <div class="form">
-          <%= f.hidden_field :user_id, :value => @current_user.id %>
+          <%= f.hidden_field :user_id, :value => @user.id %>
         </div>
         <br/>
         <%= f.submit "Create Trip", class: "btn btn-large btn-default" %>

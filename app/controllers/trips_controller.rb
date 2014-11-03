@@ -1,10 +1,10 @@
 class TripsController < ApplicationController
   def new
     @trip = Trip.new
+    @user = current_user
   end
 
   def create
-    @user = current_user
     @trip = Trip.create(trip_params)
 
     if @trip.save
