@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe TripsController, type: :controller do
   include Builders
+  let(:user) { User.create!(name: "John Doe") }
 
   describe "GET new" do
     it "assigns a new trip @trip" do
@@ -32,7 +33,7 @@ RSpec.describe TripsController, type: :controller do
     end
 
     describe "with invalid params" do
-      xit "does not save the new contact in the database" do
+      xit "does not save the new trip in the database" do
       end
 
       xit "re-renders the :new template" do
