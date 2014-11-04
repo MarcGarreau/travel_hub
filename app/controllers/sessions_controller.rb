@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     token = auth_hash["credentials"]["token"]
     response = InstagramInterface.pull_first_posts(uid, token)
     Post.login_post_builder(response, user)
-    redirect_to '/feed', notice: "Welcome, #{user.nickname}!"
+    redirect_to '/feed'
   end
 
   def destroy
