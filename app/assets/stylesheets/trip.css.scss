@@ -1,3 +1,31 @@
 .new_trip_form {
   text-align: center;
 }
+.trip_title {
+  font-size: 5rem;
+  font-weight: 600;
+  width: 100%;
+  height: 7rem;
+  background: gray;
+  text-align: center;
+  position:fixed;
+  margin-top: -6rem;
+  color: white;
+}
+.trip_row {
+  border-bottom: solid;
+  border-color: gray;
+}
+.index_trip_title {
+  font-size: 8rem;
+  font-weight: 600;
+  color: gray;
+  margin-left: 5%;
+}
+.index_trip_date {
+  font-size: 4rem;
+  color:gray;
+  margin-left: 5%;
+  margin-top: -2rem;
+  margin-bottom: 2rem;
+}
