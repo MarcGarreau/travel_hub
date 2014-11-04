@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
   belongs_to :user
+  has_many :posts_trips
+  has_many :trips, through: :posts_trips
 
   store_accessor :properties, :tweet_url, :tweet_date
 

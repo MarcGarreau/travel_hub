@@ -5,6 +5,8 @@ class Trip < ActiveRecord::Base
   validates :user_id,    presence: true
 
   belongs_to :user
+  has_many :posts_trips
+  has_many :posts, through: :posts_trips
 
   def format_start_date
     self.start_date.strftime("%b %d, %Y")
