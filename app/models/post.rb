@@ -22,17 +22,17 @@ class Post < ActiveRecord::Base
   end
 
   def self.tweet_post_builder(response, user)
-    response[""].each do |post|
+    response.each do |post|
       new_post = user.posts.new
 
       new_post_attrs = {}
       new_post_attrs["text"]         = post["text"]
       new_post_attrs["created_date"] = post["created_at"].to_datetime
-      new_post_attrs["image_url"]    = post["entities"]["media"].first["media_url"]
-      new_post_attrs["latitude"]     = post["geo"]["coordinates"].first
-      new_post_attrs["longitude"]    = post["geo"]["coordinates"].last
+      new_post_attrs["image_url"]    = post["entities"]["media"].first["media_url"] unless post["entities"]["media"] == nil
+      new_post_attrs["latitude"]     = post["geo"]["coordinates"].first unless post["geo"] == nil
+      new_post_attrs["longitude"]    = post["geo"]["coordinates"].last unless post["geo"] == nil
 
-      new_post_properties = new_post_attrs
+      new_post.properties = new_post_attrs
       new_post.source     = "Twitter"
     end
     user.save
