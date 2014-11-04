@@ -1,0 +1,10 @@
+<% if @trips.count != 0 %>
+  <% @trips.each do |trip| %>
+    <p><%= trip.title %></p>
+    <p><%= trip.start_date %></p>
+    <p><%= trip.end_date %></p>
+    <hr>
+  <% end %>
+<% else %>
+  Create your first trip!
+<% end %>
