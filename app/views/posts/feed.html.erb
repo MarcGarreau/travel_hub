@@ -1,110 +1,16 @@
 <%= render "layouts/navigation" %>
 
-<!-- <% @posts.reverse_each do |post| %> -->
-  <div class="post">
+<% @posts.reverse_each do |post| %>
+   <div class="post">
     <div class="full_width">
-      <%= image_tag "sally.jpg", class:"profile_picture" %>
-      <div class="profile_nickname"><%= "Sally" %></div>
-      <div class="date">Friday, October 31, 2014 </div>
-      <div class="location">Alburquerque, NM </div>
-    </div>
-    <div class="text"><%= "This app is the best thing in my life. Now I cannot live without footprints
-                           This app is the best thing in my life. Now I cannot live without footprints
-                           This app is the best thing in my life. Now I cannot live without footprints  " %></div>
-    <div class="post_image"></div>
-  </div>	
-<!-- <% end %> -->
-
-
-
-
-
-<!-- <% @posts.reverse_each do |post| %> -->
-  <div class="post">
-    <div class="full_width">
-      <%= image_tag "sally.jpg", class:"profile_picture" %>
-      <div class="profile_nickname"><%= "Sally" %></div>
-      <div class="date">Friday, October 31, 2014 </div>
-      <div class="location">Alburquerque, NM </div>
+      <%= image_tag post.user.image, class:"profile_picture" %>
+      <div class="profile_nickname"><%= post.user.nickname %></div>
+      <div class="date"><%= post.properties["created_date"] %></div>
+      <div class="location"><%= "Denver, Co" %></div>
     </div>
     <div class="text"><%= "This app is the best thing in my life. Now I cannot live without footprints
                            This app is the best thing in my life. Now I cannot live without footprints
                            This app is the best thing in my life. Now I cannot live without footprints  " %></div>
     <div class="post_image"></div>
   </div>
-<!-- <% end %> -->
-
-<!-- <% @posts.reverse_each do |post| %> -->
-  <div class="post">
-    <div class="full_width">
-      <%= image_tag "sally.jpg", class:"profile_picture" %>
-      <div class="profile_nickname"><%= "Sally" %></div>
-      <div class="date">Friday, October 31, 2014 </div>
-      <div class="location">Alburquerque, NM </div>
-    </div>
-    <div class="text"><%= "This app is the best thing in my life. Now I cannot live without footprints
-                           This app is the best thing in my life. Now I cannot live without footprints
-                           This app is the best thing in my life. Now I cannot live without footprints  " %></div>
-    <div class="post_image"></div>
-  </div>
-<!-- <% end %> -->
-
-<!-- <% @posts.reverse_each do |post| %> -->
-  <div class="post">
-    <div class="full_width">
-      <%= image_tag "sally.jpg", class:"profile_picture" %>
-      <div class="profile_nickname"><%= "Sally" %></div>
-      <div class="date">Friday, October 31, 2014 </div>
-      <div class="location">Alburquerque, NM </div>
-    </div>
-    <div class="text"><%= "This app is the best thing in my life. Now I cannot live without footprints
-                           This app is the best thing in my life. Now I cannot live without footprints
-                           This app is the best thing in my life. Now I cannot live without footprints  " %></div>
-    <div class="post_image"></div>
-  </div>
-<!-- <% end %> -->
-
-<!-- <% @posts.reverse_each do |post| %> -->
-  <div class="post">
-    <div class="full_width">
-      <%= image_tag "sally.jpg", class:"profile_picture" %>
-      <div class="profile_nickname"><%= "Sally" %></div>
-      <div class="date">Friday, October 31, 2014 </div>
-      <div class="location">Alburquerque, NM </div>
-    </div>
-    <div class="text"><%= "This app is the best thing in my life. Now I cannot live without footprints
-                           This app is the best thing in my life. Now I cannot live without footprints
-                           This app is the best thing in my life. Now I cannot live without footprints  " %></div>
-    <div class="post_image"></div>
-  </div>
-<!-- <% end %> -->
-
-<!-- <% @posts.reverse_each do |post| %> -->
-  <div class="post">
-    <div class="full_width">
-      <%= image_tag "sally.jpg", class:"profile_picture" %>
-      <div class="profile_nickname"><%= "Sally" %></div>
-      <div class="date">Friday, October 31, 2014 </div>
-      <div class="location">Alburquerque, NM </div>
-    </div>
-    <div class="text"><%= "This app is the best thing in my life. Now I cannot live without footprints
-                           This app is the best thing in my life. Now I cannot live without footprints
-                           This app is the best thing in my life. Now I cannot live without footprints  " %></div>
-    <div class="post_image"></div>
-  </div>
-<!-- <% end %> -->
-
-<!-- <% @posts.reverse_each do |post| %> -->
-  <div class="post">
-    <div class="full_width">
-      <%= image_tag "sally.jpg", class:"profile_picture" %>
-      <div class="profile_nickname"><%= "Sally" %></div>
-      <div class="date">Friday, October 31, 2014 </div>
-      <div class="location">Alburquerque, NM </div>
-    </div>
-    <div class="text"><%= "This app is the best thing in my life. Now I cannot live without footprints
-                           This app is the best thing in my life. Now I cannot live without footprints
-                           This app is the best thing in my life. Now I cannot live without footprints  " %></div>
-    <div class="post_image"></div>
-  </div>
-<!-- <% end %> -->
+<% end %>

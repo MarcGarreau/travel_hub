@@ -9,4 +9,12 @@ Rails.application.routes.draw do
   resources :menu, only: [:index]
   resources :trips
 
+  namespace :api do
+    namespace :v1 do
+      resources :trips, only: [:index, :show] do
+        resources :posts, only: [:index, :show]
+      end
+    end
+  end
+
 end
