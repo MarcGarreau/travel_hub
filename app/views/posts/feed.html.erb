@@ -1,16 +1,14 @@
 <%= render "layouts/navigation" %>
 
 <% @posts.reverse_each do |post| %>
-   <div class="post">
+  <div class="post">
     <div class="full_width">
       <%= image_tag post.user.image, class:"profile_picture" %>
       <div class="profile_nickname"><%= post.user.nickname %></div>
-      <div class="date"><%= post.properties["created_date"] %></div>
-      <div class="location"><%= "Denver, Co" %></div>
+      <div class="date"><%= "#{wordy_time(post)} ago at #{post.properties["place_name"]}" %></div>
     </div>
-    <div class="text"><%= "This app is the best thing in my life. Now I cannot live without footprints
-                           This app is the best thing in my life. Now I cannot live without footprints
-                           This app is the best thing in my life. Now I cannot live without footprints  " %></div>
-    <div class="post_image"></div>
+    <div class="text"><%= post.properties["caption"] %></div>
+
+    <div class="post_image" style="background-image: url(<%= post.properties['url'] %> );"></div>
   </div>
 <% end %>
