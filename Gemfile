@@ -18,6 +18,7 @@ gem 'omniauth-instagram'
 gem 'figaro'
 gem 'httparty'
 gem 'instagram'
+gem 'omniauth-twitter'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
