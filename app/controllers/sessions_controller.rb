@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
     uid   = auth_hash["uid"]
     token = auth_hash["credentials"]["token"]
     response = InstagramInterface.pull_first_posts(uid, token)
+    # pull out to a background worker
     Post.login_post_builder(response, user)
     redirect_to '/feed'
   end
@@ -28,6 +29,7 @@ class SessionsController < ApplicationController
     access_token  = auth_hash["extra"]["access_token"]
     response      = access_token.request(:get, "https://api.twitter.com/1.1/statuses/user_timeline.json")
     json_response = JSON.parse(response.body)
+    # pull out to a background worker
     Post.tweet_post_builder(json_response, current_user)
     # save user creds (access_token) for later pull
     redirect_to feed_path
