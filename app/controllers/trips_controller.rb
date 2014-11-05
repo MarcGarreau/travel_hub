@@ -21,11 +21,7 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
-
-    @posts = @trip.posts.all#.where("properties['created_date'] >= :start_date AND properties['created_date'] <= :end_date",
-                                   #{start_date: params[:start_date], end_date: params[:end_date]})
-                                   #PG::DatatypeMismatch: ERROR:  cannot subscript type hstore because it is not an array
-                                   #http://jes.al/2013/11/using-postgres-hstore-rails4/
+    @posts = current_user.posts.all
   end
 
   private
