@@ -19,9 +19,10 @@ class TripsController < ApplicationController
   end
 
   def show
+
     @trip = Trip.find(params[:id])
-    @posts = current_user.posts.all #.where("properties['created_date'] >= :start_date AND properties['created_date'] <= :end_date",
-             # trip.posts.all
+    @posts = current_user.posts.where("posts.date >= @trip.start_date AND properties['created_date'].to_date <= @trip.start_date")
+
   end
 
   private

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141105204736) do
+ActiveRecord::Schema.define(version: 20141105213040) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20141105204736) do
     t.hstore   "properties"
     t.string   "source"
     t.boolean  "hide"
+    t.date     "created_date"
   end
 
   create_table "travelings", force: true do |t|
