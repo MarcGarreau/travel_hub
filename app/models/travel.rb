@@ -1,4 +1,4 @@
 class Travel < ActiveRecord::Base
-  belongs_to :trips
-  belongs_to :posts
+  belongs_to :trip
+  belongs_to :post
 end
