@@ -20,10 +20,6 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 
-  def bounce
-    redirect_to "/auth/#{params[:providor]}"
-  end
-
   def twitter
     access_token  = auth_hash["extra"]["access_token"]
     response      = access_token.request(:get, "https://api.twitter.com/1.1/statuses/user_timeline.json")
