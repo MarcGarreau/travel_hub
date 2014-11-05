@@ -5,6 +5,8 @@ class Trip < ActiveRecord::Base
 
   has_many :travelings
   has_many :users, through: :travelings
+  has_many :travels
+  has_many :posts, through: :travels
 
   def format_start_date
     self.start_date.strftime("%b %d, %Y")
