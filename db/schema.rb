@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141102010330) do
+ActiveRecord::Schema.define(version: 20141105204736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,13 +23,31 @@ ActiveRecord::Schema.define(version: 20141102010330) do
     t.datetime "updated_at"
     t.hstore   "properties"
     t.string   "source"
+    t.boolean  "hide"
   end
+
+  create_table "travelings", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "trip_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "travelings", ["trip_id"], name: "index_travelings_on_trip_id", using: :btree
+  add_index "travelings", ["user_id"], name: "index_travelings_on_user_id", using: :btree
+
+  create_table "travels", id: false, force: true do |t|
+    t.integer "post_id", null: false
+    t.integer "trip_id", null: false
+  end
+
+  add_index "travels", ["post_id", "trip_id"], name: "index_travels_on_post_id_and_trip_id", using: :btree
+  add_index "travels", ["trip_id", "post_id"], name: "index_travels_on_trip_id_and_post_id", using: :btree
 
   create_table "trips", force: true do |t|
     t.string   "title"
     t.date     "start_date"
     t.date     "end_date"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

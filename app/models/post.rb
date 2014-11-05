@@ -1,7 +1,11 @@
 class Post < ActiveRecord::Base
   belongs_to :user
+  has_many :travels
+  has_many :trips, through: :travels
 
   store_accessor :properties, :tweet_url, :tweet_date
+
+  # default_scope, -> { where("properties['created_date'] > ASC") }
 
   def self.login_post_builder(response, user)
     response["data"].each do |post|

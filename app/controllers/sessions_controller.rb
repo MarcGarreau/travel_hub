@@ -8,9 +8,9 @@ class SessionsController < ApplicationController
                                                         }).permit(:provider, :uid, :name, :nickname, :image)
     user              = User.from_omniauth(auth_params)
     session[:user_id] = user.id
-    uid   = auth_hash["uid"]
-    token = auth_hash["credentials"]["token"]
-    response = InstagramInterface.pull_first_posts(uid, token)
+    uid               = auth_hash["uid"]
+    token             = auth_hash["credentials"]["token"]
+    response          = InstagramInterface.pull_first_posts(uid, token)
     Post.login_post_builder(response, user)
     redirect_to '/feed'
   end
@@ -18,10 +18,6 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     redirect_to root_path
-  end
-
-  def bounce
-    redirect_to "/auth/#{params[:providor]}"
   end
 
   def twitter
