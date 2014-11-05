@@ -21,7 +21,6 @@ class TripsController < ApplicationController
   def show
 
     @trip = Trip.find(params[:id])
-    byebug
     @posts = current_user.posts.where("posts.date >= @trip.start_date AND properties['created_date'].to_date <= @trip.start_date")
 
   end
