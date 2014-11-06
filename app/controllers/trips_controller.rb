@@ -23,7 +23,7 @@ class TripsController < ApplicationController
         end
       end
       redirect_to trip_path(@trip)
-    else
+    else 
       render :new
     end
   end
