@@ -28,8 +28,7 @@ class SessionsController < ApplicationController
     access_token  = auth_hash["extra"]["access_token"]
     response      = access_token.request(:get, "https://api.twitter.com/1.1/statuses/user_timeline.json")
     json_response = JSON.parse(response.body)
-    # pull out to a background worker
-    Post.tweet_post_builder(json_response, current_user)
+    TwitterWorker.perform_async(json_response, current_user.id)
     # save user creds (access_token) for later pull
     redirect_to feed_path
   end
