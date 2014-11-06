@@ -1,11 +1,10 @@
-<div class="container">
-  <div class="full_background menu_background"></div>
+  <div class="full_background background_gray"></div>
   <div class="title_container">
     <div class="menu_title">Create New Trip</div>
   </div>
-  <div class="col-lg-6 col-lg-offset-3">
     <div class="new_trip_form">
       <%= form_for @trip do |f| %>
+
         <% if @trip.errors.any? %>
           <ul id="errors">
             <% @trip.errors.full_messages.each do |error| %>
@@ -15,21 +14,21 @@
             <% end %>
           </ul>
         <% end %>
+
         <div class="form">
-          <%= f.label :trip_name%>:
-          <%= f.text_field :title, class: "form-control" %>
+          <%= f.text_field :title, class: "input_form", placeholder: "Name your trip"%>
         </div>
         <div class="form">
-          <%= f.label :start_date %>:
-          <%= f.date_field :start_date, class: "form-control" %>
+          <%= f.label :start_date, class: "label_form" %><br>
+          <%= f.date_field :start_date, class: "input_form" %>
         </div>
         <div class="form">
-          <%= f.label :end_date %>:
-          <%= f.date_field :end_date, class: "form-control" %>
+          <%= f.label :end_date, class: "label_form" %><br>
+          <%= f.date_field :end_date, class: "input_form" %>
         </div>
        <br/>
-        <%= f.submit "Create Trip", class: "btn btn-large btn-default" %>
+        <%= f.submit "Create Trip", class: "add_trip_btn" %>
       <% end %>
+      <%= link_to "Cancel", trips_path, class:"cancel_btn" %>
+
     </div>
-  </div>
-</div>

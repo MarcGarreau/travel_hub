@@ -11,14 +11,21 @@
 
 
 <% if @trips.count != 0 %>
+
   <% @trips.reverse_each do |trip| %>
-    <%= link_to trip, class:"link_to" do %>
-      <div class="trip_row">
-        <div class="index_trip_title"><%= trip.title %></div>
-        <div class="index_trip_date"><%= "From #{trip.start_date.to_date.strftime("%^b %e, %Y")} to #{trip.end_date.to_date.strftime("%^b %e, %Y")}" %></div>
-      </div>
-    <% end %>
+      <%= link_to trip, class:"link_to" do %>
+        <div class="trip_row">
+          <div class="index_trip_title"><%= trip.title %></div>
+          <div class="index_trip_date"><%= "From #{trip.start_date.to_date.strftime("%^b %e, %Y")} to #{trip.end_date.to_date.strftime("%^b %e, %Y")}" %></div>
+        <%= link_to "edit", edit_trip_path(trip), class:"edit_btn" %>
+        </div>
+      <% end %>
   <% end %>
-<% else %>
-  Create your first trip!
+
+  <div class=" full_background background_gray"></div>
+  <%= link_to new_trip_path, class:"link_to" do %>
+    <div class="new_trip_btn">
+      <div class="title">Create your first Trip!</div>
+    </div>
+  <% end %>
 <% end %>

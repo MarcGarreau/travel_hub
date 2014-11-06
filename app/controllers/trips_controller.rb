@@ -8,6 +8,21 @@ class TripsController < ApplicationController
     @trip = Trip.new
   end
 
+  def edit
+    @trip = Trip.find(params[:id])
+  end
+
+  def update
+    @trip = Trip.find(params[:id])
+
+  if @trip.update(trip_params)
+    redirect_to @trip
+  else
+    render 'edit'
+  end
+
+  end
+
   def create
     @trip = current_user.trips.create(trip_params)
 
@@ -30,7 +45,7 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
-    @posts = @trip.posts.all
+    @posts = @trip.posts.all.sort_by{|post| post.created_date }
   end
 
   private

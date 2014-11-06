@@ -19,6 +19,7 @@ gem 'figaro'
 gem 'httparty'
 gem 'instagram'
 gem 'omniauth-twitter'
+gem 'sidekiq'
 gem 'byebug'
 gem 'selectize-rails'
 
