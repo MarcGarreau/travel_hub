@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get   'feed',                     to: 'posts#feed',       as: 'feed'
   get   '/login',                   to: 'sessions#bounce',  as: :login
+  get   '/logout',                  to: 'sessions#destroy', as: :logout
   match '/auth/instagram/callback', to: 'sessions#create',  via: [:get]
   match '/auth/twitter/callback',   to: 'sessions#twitter', via: [:get]
   match '/auth/failure',            to: 'sessions#failure', via: [:get]
