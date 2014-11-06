@@ -20,6 +20,7 @@ gem 'httparty'
 gem 'instagram'
 gem 'omniauth-twitter'
 gem 'byebug'
+gem 'selectize-rails'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
