@@ -11,6 +11,6 @@
 /log/*.log
 /tmp
 vendor/bundle/
-
+dump.rdb
 # Ignore application configuration
 /config/application.yml

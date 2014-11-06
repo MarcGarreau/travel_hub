@@ -19,6 +19,7 @@ gem 'figaro'
 gem 'httparty'
 gem 'instagram'
 gem 'omniauth-twitter'
+gem 'sidekiq'
 gem 'byebug'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
