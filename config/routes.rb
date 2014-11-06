@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :menu, only: [:index]
   resources :trips
+  resources :travelings
 
   namespace :api do
     namespace :v1 do

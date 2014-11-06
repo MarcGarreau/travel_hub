@@ -1,4 +1,13 @@
 <%= render "layouts/navigation" %>
-<div class="trip_title"><%= @trip.title %></div>
+<div class="trip_title"><%= @trip.title %>
+  <%= form_for @trip.travelings.new do |f| %>
+    <%= f.text_field :user_id %>
+    <%= f.hidden_field :trip_id %>
+    <%= f.submit "+" %>
+  <% end %>
+  </div>
+<!-- type in user nickname,
+              it does: @trip.travelings.create(user_id: x,
+                                               trip_id: @trip.id) -->
 <div class="push_5"></div>
 <%= render "posts/posts_feed" %>

@@ -13,10 +13,9 @@ describe User, type: :model do
   end
 
   it "knows about its trips" do
-    trip = Trip.create( title:      "Vegas Baby!, Baby?, Uh oh.",
+    trip = user.trips.create( title:      "Vegas Baby!, Baby?, Uh oh.",
                         start_date: "2014-10-30",
-                        end_date:   "2014-11-10",
-                        user_id:    user.id )
+                        end_date:   "2014-11-10" )
 
     user_trip = user.trips.first
 

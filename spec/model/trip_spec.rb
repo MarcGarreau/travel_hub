@@ -1,11 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Trip, type: :model do
-  let(:trip) { Trip.create( id:          98, 
+  let(:trip) { Trip.create( id:          98,
                             title:      "Vegas Baby! Baby? Uh oh.",
                             start_date: "2014-10-30",
-                            end_date:   "2014-11-10",
-                            user_id:    1 ) }
+                            end_date:   "2014-11-10")}
 
   it "is valid" do
     expect(trip).to be_valid
@@ -29,12 +28,6 @@ RSpec.describe Trip, type: :model do
     expect(trip).not_to be_valid
   end
 
-  it "is invalid without a user_id" do
-    trip.user_id = nil
-
-    expect(trip).not_to be_valid
-  end
-
   it "shows formatted start_date" do
     expect(trip.format_start_date).to eq("Oct 30, 2014")
   end
@@ -44,9 +37,8 @@ RSpec.describe Trip, type: :model do
   end
 
   it "knows its user" do
-    user = User.create( name: "Boogly-Boo" )
-    trip.user_id = user.id
+    trip.users.create( name: "Boogly-Boo" )
 
-    expect(trip.user.name).to eq("Boogly-Boo")
+    expect(trip.users.first.name).to eq("Boogly-Boo")
   end
 end

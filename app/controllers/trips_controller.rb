@@ -1,19 +1,28 @@
 class TripsController < ApplicationController
 
   def index
-    @trips = Trip.all
+    @trips = current_user.trips.all
   end
 
   def new
     @trip = Trip.new
-    @user = current_user
   end
 
   def create
-    @trip = Trip.create(trip_params)
+    @trip = current_user.trips.create(trip_params)
 
     if @trip.save
-      redirect_to feed_path
+      # create a row in the travels table for each post within the selected dates
+      start_date = params["trip"]["start_date"]
+      end_date   = params["trip"]["end_date"]
+      @trip.users.each do |user|
+        user.posts.each do |post|
+          if post.created_date >= start_date.to_datetime && post.created_date <= end_date.to_datetime
+            Travel.create!(post_id: post.id, trip_id: @trip.id)
+          end
+        end
+      end
+      redirect_to trip_path(@trip)
     else
       render :new
     end
@@ -21,11 +30,7 @@ class TripsController < ApplicationController
 
   def show
     @trip = Trip.find(params[:id])
-
-    @posts = current_user.posts.all#.where("properties['created_date'] >= :start_date AND properties['created_date'] <= :end_date",
-                                   #{start_date: params[:start_date], end_date: params[:end_date]})
-                                   #PG::DatatypeMismatch: ERROR:  cannot subscript type hstore because it is not an array
-                                   #http://jes.al/2013/11/using-postgres-hstore-rails4/
+    @posts = @trip.posts.all
   end
 
   private
