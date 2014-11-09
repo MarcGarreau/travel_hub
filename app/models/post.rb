@@ -30,7 +30,7 @@ class Post < ActiveRecord::Base
       new_post = user.posts.new
 
       new_post_attrs = {}
-      new_post_attrs["text"]         = post["text"]
+      new_post_attrs["text"]         = post["text"] unless post["text"] == nil
       new_post_attrs["image_url"]    = post["entities"]["media"].first["media_url"] unless post["entities"]["media"] == nil
       new_post_attrs["latitude"]     = post["geo"]["coordinates"].first unless post["geo"] == nil
       new_post_attrs["longitude"]    = post["geo"]["coordinates"].last unless post["geo"] == nil
