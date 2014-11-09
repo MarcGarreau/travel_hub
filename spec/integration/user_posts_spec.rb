@@ -10,4 +10,11 @@ describe "User" do
     expect(user.posts.first.properties["twitter_url"]).to eq("http://twitter.com")
     expect(user.posts.first.properties["tweet_date"]).to eq("10/28/2014")
   end
+
+  xit "has a image tweet with no text" do
+    # a user signs on with instagram
+    # adds their tweets
+    # tweets do not need a caption
+    # expect a tweet to have just a picture
+  end
 end
