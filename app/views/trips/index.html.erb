@@ -1,17 +1,4 @@
-<div class="navigation">
-  <%= link_to trips_path do %>
-    <div class="options_link left link_to">Your Trips</div>
-  <% end %>
-  <div class="text_divider left">|</div>
-  <%= link_to feed_path do %>
-    <div class="text left">Latest Activity</div>
-  <% end %>
-</div>
-<div class="floater_4"></div>
-
-
 <% if @trips.count != 0 %>
-
   <% @trips.reverse_each do |trip| %>
       <%= link_to trip, class:"link_to" do %>
         <div class="trip_row">
@@ -21,11 +8,11 @@
         </div>
       <% end %>
   <% end %>
+<% end %>
 
-  <div class=" full_background background_gray"></div>
-  <%= link_to new_trip_path, class:"link_to" do %>
-    <div class="new_trip_btn">
-      <div class="title">Create your first Trip!</div>
-    </div>
-  <% end %>
+<div class=" full_background background_gray"></div>
+<%= link_to new_trip_path, class:"link_to" do %>
+  <div class="new_trip_btn">
+    <div class="title">Create your first Trip!</div>
+  </div>
 <% end %>

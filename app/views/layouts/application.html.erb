@@ -9,7 +9,9 @@
   <link href='http://fonts.googleapis.com/css?family=Delius' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <%= render partial: "layouts/navigation" unless controller_name == "welcome" || "menu" %>
+
+  <%= render partial: "shared/navigation" unless controller_name == "welcome" %>
+  <%= render partial: "shared/flash_notices" %>
   <%= yield %>
 
 </body>

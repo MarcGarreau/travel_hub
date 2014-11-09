@@ -2,13 +2,14 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
 @import "variables";
 @import "background";
 @import "home";
 @import "menu";
 @import "feed";
-@import "bootstrap";
-@import "bootstrap-sprockets";
 
 body {
   padding: 0;
