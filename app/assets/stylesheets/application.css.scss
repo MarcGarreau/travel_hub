@@ -2,13 +2,14 @@
  *= require_tree .
  *= require_self
  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
 @import "variables";
 @import "background";
 @import "home";
 @import "menu";
 @import "feed";
-@import "bootstrap";
-@import "bootstrap-sprockets";
 
 body {
   padding: 0;
@@ -65,7 +66,7 @@ body {
   margin-left: 5%;
 }
 .floater_4 {
-  height: 120px;
+  height: 65px;
 }
 .text_divider {
   padding: 0 2rem;
