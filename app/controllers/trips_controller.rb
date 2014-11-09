@@ -42,6 +42,7 @@ class TripsController < ApplicationController
 
   def show
     @posts = @trip.posts.all.sort_by{|post| post.created_date }
+    @users = User.all
   end
 
   def destroy

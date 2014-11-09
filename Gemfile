@@ -21,6 +21,7 @@ gem 'instagram'
 gem 'omniauth-twitter'
 gem 'sidekiq'
 gem 'byebug'
+gem 'selectize-rails'
 gem 'execjs'
 gem 'therubyracer'
 
@@ -38,4 +39,7 @@ gem 'therubyracer'
 group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'vcr'
+  gem 'webmock'
+  gem 'launchy'
 end
