@@ -46,6 +46,7 @@ class TripsController < ApplicationController
   def show
     @trip = Trip.find(params[:id])
     @posts = @trip.posts.all.sort_by{|post| post.created_date }
+    @users = User.all
   end
 
   private
