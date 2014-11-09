@@ -22,6 +22,8 @@ gem 'omniauth-twitter'
 gem 'sidekiq'
 gem 'byebug'
 gem 'selectize-rails'
+gem 'execjs'
+gem 'therubyracer'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
