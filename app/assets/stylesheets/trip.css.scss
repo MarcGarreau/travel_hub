@@ -24,10 +24,14 @@
 }
 .new_trip_button {
   font-size: 8rem;
-  text-align: center;
   font-weight: 600;
-  color: white;
-  background: gray;
+  color: rgb(48,48,48);
+  margin-left: 5%;
+  padding-top: 5%;
+  height: 22rem;
+}
+.new_trip_background {
+  background: rgb(184,184,184);
 }
 .index_trip_title {
   font-size: 8rem;
