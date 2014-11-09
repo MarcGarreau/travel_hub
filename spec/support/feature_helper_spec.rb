@@ -1,15 +1,28 @@
 module FeatureHelper
   def mock_auth
-    OmniAuth.config.mock_auth[:instagram] = OmniAuth::AuthHash.new({
-      provider: 'instagram',
-      uid: '123456',
-      info:
+    OmniAuth.config.mock_auth[:instagram] = OmniAuth::AuthHash.new(
       {
-      name:     'boogly-boo',
-      nickname: 'boo',
-      image:    'http://image.google.com/something.jpg'
-    }
-    })
+        "provider"=>"instagram",
+        "uid"=>"1546672945",
+        "info"=>
+          {
+            "nickname"=>"notfakemarc",
+            "name"=>"",
+            "image"=>"http://images.ak.instagram.com/profiles/anonymousUser.jpg",
+            "bio"=>"",
+            "website"=>""
+          },
+        "credentials"=>{"token"=>ENV["OAUTH_TEST_TOKEN"], "expires"=>false},
+        "extra"=>{}
+      })
+  end
+
+  def log_user_in
+    VCR.use_cassette('login') do
+      visit root_path
+      mock_auth
+      click_link "Sign In With Instagram"
+    end
   end
 
   def instagram_api_response

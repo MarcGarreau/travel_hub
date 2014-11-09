@@ -22,6 +22,17 @@
   border-bottom: solid;
   border-color: gray;
 }
+.new_trip_button {
+  font-size: 8rem;
+  font-weight: 600;
+  color: rgb(48,48,48);
+  margin-left: 5%;
+  padding-top: 5%;
+  height: 22rem;
+}
+.new_trip_background {
+  background: rgb(184,184,184);
+}
 .index_trip_title {
   font-size: 8rem;
   font-weight: 600;
@@ -80,4 +91,5 @@
 }
 .edit_btn {
   font-size: 5rem;
+  margin-left: 5%;
 }
