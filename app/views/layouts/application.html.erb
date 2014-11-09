@@ -9,13 +9,7 @@
   <link href='http://fonts.googleapis.com/css?family=Delius' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <% if flash.any? %>
-    <div id="flash">
-      <% flash.each do |key, value| -%>
-        <div id="flash_<%= key %>"><%= value %></div>
-      <% end -%>
-    </div>
-  <% end %>
+  <%= render partial: "layouts/navigation" unless controller_name == "welcome" || "menu" %>
   <%= yield %>
 
 </body>
