@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20141105213040) do
     t.datetime "updated_at"
     t.hstore   "properties"
     t.string   "source"
+    t.string   "source_id"
     t.boolean  "hide"
     t.date     "created_date"
   end
