@@ -24,6 +24,7 @@ gem 'byebug'
 gem 'selectize-rails'
 gem 'execjs'
 gem 'therubyracer'
+gem 'dalli'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
