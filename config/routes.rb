@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :menu, only: [:index]
   resources :trips
   resources :travelings
-  resources :post, only: [:index, :show] do
+  resources :posts do
     resources :comments
   end
   get '/profile/:id', to: 'profiles#show'

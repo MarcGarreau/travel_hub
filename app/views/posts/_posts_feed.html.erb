@@ -8,6 +8,10 @@
           <div class="profile_nickname"><%= post.user.nickname %></div>
           <div class="date"><%= "#{wordy_time(post) unless post["caption"] == nil} ago at #{post.properties["place_name"]}" %></div>
         </div>
+        <%= form_for post, :method => :patch do |f| %>
+          <%= f.hidden_field :hide, :value => true %>
+          <%= f.submit value: "Hide Your Post", class: "hide-button" %>
+        <% end %>
         <div class="text"><%= post.properties["caption"] %></div>
         <div class="post_image" style="background-image: url(<%= post.properties['url'] %> );"></div>
 
@@ -25,7 +29,7 @@
       <h3>The Conversation:</h3>
       <%= render partial: 'posts/comment', locals: {comments: post.comments} %>
       <%= render 'comments/new', post: post %>
-      
+
     </div>
   <% end %>
 <% end %>
