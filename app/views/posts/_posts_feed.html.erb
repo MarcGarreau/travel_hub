@@ -1,6 +1,6 @@
 <% cache @posts do %>
   <% @posts.reverse_each do |post| %>
-    <div class="post">
+    <div class="post" data-lat="<%= post.properties['latitude'] %>" data-lon="<%= post.properties['longitude'] %>">
 
       <% if post.source == "Instagram" %>
         <div class="full_width">

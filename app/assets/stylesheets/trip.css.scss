@@ -9,8 +9,15 @@
   background: gray;
   text-align: center;
   position:fixed;
-  margin-top: -6rem;
   color: white;
+}
+.left_title {
+  float:left;
+  width:50%;
+}
+.right_title {
+  float:right;
+  width:50%;
 }
 .touch_box {
   width: 150%;
