@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :post, only: [:index, :show] do
     resources :comments
   end
+  get '/profile/:id', to: 'profiles#show'
 
   namespace :api do
     namespace :v1 do

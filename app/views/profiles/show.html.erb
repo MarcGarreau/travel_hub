@@ -1,0 +1,8 @@
+<%= image_tag @user.image %>
+<br/>
+<%= @user.nickname %>
+<br/>
+Part of <%= @user.trips.count %> trips.
+<br/>
+Member since <%= @user.created_at.to_datetime.strftime("%b %d, %Y") %>.
+
