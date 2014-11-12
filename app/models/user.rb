@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :travelings
   has_many :trips, through: :travelings
+  has_many :comments
 
   def self.from_omniauth(auth)
     where(auth).first_or_create do |user|

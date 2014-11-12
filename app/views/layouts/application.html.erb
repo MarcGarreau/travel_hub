@@ -9,13 +9,9 @@
   <link href='http://fonts.googleapis.com/css?family=Delius' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <% if flash.any? %>
-    <div id="flash">
-      <% flash.each do |key, value| -%>
-        <div id="flash_<%= key %>"><%= value %></div>
-      <% end -%>
-    </div>
-  <% end %>
+
+  <%= render partial: "shared/navigation" unless controller_name == "welcome" %>
+  <%= render partial: "shared/flash_notices" %>
   <%= yield %>
 
 </body>

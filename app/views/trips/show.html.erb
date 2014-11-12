@@ -1,14 +1,30 @@
-<%= render "layouts/navigation" %>
-<div class="trip_title"><%= @trip.title %>
-  <%= form_for @trip.travelings.new do |f| %>
-    <%= f.text_field :user_id, placeholder: "Add your friends to this trip.", class:"friends_input" %>
-    <%= f.hidden_field :trip_id %>
-    <%= f.submit "+" %>
+<div class="trip_title">
+  <%= @trip.title %>
+  <%= form_tag @trip.travelings.new do %>
+    <%= select_tag :user_id, options_from_collection_for_select(@users, "id", "nickname"), { class:"friends_input", id: "select-state", multiple: "multiple", tabindex:"-1", placeholder: "Add a friend..." } %>
+    <%= hidden_field_tag :trip_id, @trip.id %>
+    <%= submit_tag "+" %>
   <% end %>
-  </div>
-  <div class="friends_input_cleaner"></div>
-<!-- type in user nickname,
-              it does: @trip.travelings.create(user_id: x,
-                                               trip_id: @trip.id) -->
+</div>
+<script>
+  $('#select-state').selectize({
+    maxItems: 3
+  });
+</script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbJVzlHZ4HApCCUHOunA1mB0kB5KA2f-E"></script>
+<script type="text/javascript">
+  function initialize() {
+    var mapOptions = {
+      center: { lat: -34.397, lng: 150.644},
+      zoom: 8
+    };
+    var map = new google.maps.Map(document.getElementById('map-canvas'),
+        mapOptions);
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+<div id="map-canvas"></div>
+
 <div class="push_5"></div>
+<div class="friends_input_cleaner"></div>
 <%= render "posts/posts_feed" %>

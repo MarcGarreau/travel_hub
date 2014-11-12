@@ -16,9 +16,25 @@ describe Post, type: :model do
   end
 
   it "builds upon first login" do
-    user     = User.create!(name: "Joe Shmoe", nickname: "joe")
+    user = User.create!(name: "Joe Shmoe", nickname: "joe")
     Post.login_post_builder(instagram_api_response, user)
     expect(user.posts.count).to eq 2
     expect(user.posts.first.source).to eq "Instagram"
+  end
+
+  it "does not create duplicate instagram posts" do
+    user = User.create!(name: "Joe Shmoe", nickname: "joe")
+    Post.login_post_builder(instagram_api_response, user)
+    expect(user.posts.count).to eq 2
+    Post.login_post_builder(instagram_api_response, user)
+    expect(user.posts.count).to eq 2
+  end
+
+  it "does not create duplicate tweet posts" do
+    user = User.create!(name: "Joe Shmoe", nickname: "joe")
+    Post.tweet_post_builder(twitter_api_response, user)
+    expect(user.posts.count).to eq 2
+    Post.tweet_post_builder(twitter_api_response, user)
+    expect(user.posts.count).to eq 2
   end
 end
