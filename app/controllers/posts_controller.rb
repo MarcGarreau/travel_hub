@@ -10,19 +10,9 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    if @post.hide = true
-      @post.hide = false
-    else
-      @post.hide = false
-   end
+    @post.hide = true
     @post.save
     redirect_to feed_path
   end
 
-  def patch
-    @post = Post.find(params[:id])
-    @post.hide = false
-    @post.save
-    redirect_to feed_path
-  end
 end
