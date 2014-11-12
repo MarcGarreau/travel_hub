@@ -1,16 +1,44 @@
 <div class="trip_title">
-  <%= @trip.title %>
-  <%= form_tag @trip.travelings.new do %>
-    <%= select_tag :user_id, options_from_collection_for_select(@users, "id", "nickname"), { class:"friends_input", id: "select-state", multiple: "multiple", tabindex:"-1", placeholder: "Add a friend..." } %>
-    <%= hidden_field_tag :trip_id, @trip.id %>
-    <%= submit_tag "+" %>
-  <% end %>
+  <div class="left_title"><%= @trip.title %></div>
+  <div class="right_title">
+    <%= form_tag @trip.travelings.new do %>
+      <%= select_tag :user_id, options_from_collection_for_select(@users, "id", "nickname"), { class:"friends_input", id: "select-state", multiple: "multiple", tabindex:"-1", placeholder: "Add a friend..." } %>
+      <%= hidden_field_tag :trip_id, @trip.id %>
+      <%= submit_tag "+" %>
+    <% end %>
+  </div>
 </div>
 <script>
   $('#select-state').selectize({
     maxItems: 3
   });
 </script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBbJVzlHZ4HApCCUHOunA1mB0kB5KA2f-E"></script>
+<script type="text/javascript">
+
+  function initialize() {
+    var mapOptions = {
+      center: { lat: 39.750742, lng: -105.000239 },
+      zoom: 13
+    };
+    var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+    var $posts = $('.post')
+    var $filteredPosts = $posts.filter( function(index, post) {
+      return $(this).data('lat') && $(this).data('lon');
+    });
+
+    var allMarkers = $filteredPosts.toArray().forEach(function(post) {
+      var myLatlng = new google.maps.LatLng(post.dataset.lat, post.dataset.lon);
+      new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+      });
+    });
+  }
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+<div id="map-canvas" style="height: 400px; width: 100%; margin: 0; padding: 0;"></div>
 
 <div class="push_5"></div>
 <div class="friends_input_cleaner"></div>

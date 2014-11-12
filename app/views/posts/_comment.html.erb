@@ -1,5 +1,3 @@
-<div>
-  <% comments.each do |comment| %>
+<% comments.each do |comment| %>
     <p><strong><%= comment.user.nickname %>:</strong> <%= comment.body %></p>
-  <% end %>
-</div>
+<% end %>
