@@ -9,7 +9,7 @@
           <div class="date"><%= "#{wordy_time(post) unless post["caption"] == nil} ago at #{post.properties["place_name"]}" %></div>
         </div>
         <%= form_for post, :method => :patch do |f| %>
-          <%= f.hidden_field :hide, :value => true %>
+          <%= f.hidden_field :hide %>
           <%= f.submit value: "Hide Your Post", class: "hide-button" %>
         <% end %>
         <div class="text"><%= post.properties["caption"] %></div>
@@ -21,6 +21,10 @@
           <div class="profile_nickname"><%= post.user.nickname %></div>
           <div class="date"><%= "#{wordy_time(post) unless post["caption"] == nil} ago at #{post.properties["place_name"]}" %></div>
         </div>
+        <%= form_for post, :method => :patch do |f| %>
+          <%= f.hidden_field :hide, :value => true %>
+          <%= f.submit value: "Hide Your Post", class: "hide-button" %>
+        <% end %>
         <div class="text"><%= post.properties["text"] %></div>
         <% if post.properties["image_url"] %>
           <div class="post_image" style="background-image: url(<%= post.properties['image_url'] %> );"></div>

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'hideposts/index'
+
   root to: 'welcome#home'
 
   get   'feed',                     to: 'posts#feed',       as: 'feed'
@@ -11,6 +13,7 @@ Rails.application.routes.draw do
   resources :menu, only: [:index]
   resources :trips
   resources :travelings
+  resources :hideposts
   resources :posts do
     resources :comments
   end
