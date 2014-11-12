@@ -1,3 +1,5 @@
 <div>
-  <p><%= comment.body %></p>
+  <% comments.each do |comment| %>
+    <p><strong><%= comment.user.nickname %>:</strong> <%= comment.body %></p>
+  <% end %>
 </div>
