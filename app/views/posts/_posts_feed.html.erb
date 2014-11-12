@@ -22,6 +22,10 @@
           <div class="post_image" style="background-image: url(<%= post.properties['image_url'] %> );"></div>
         <% end %>
       <% end %>
+      <h3>The Conversation:</h3>
+      <%= render partial: 'posts/comment', locals: {comments: post.comments} %>
+      <%= render 'comments/new', post: post %>
+      
     </div>
   <% end %>
 <% end %>

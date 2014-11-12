@@ -1,0 +1,5 @@
+<%= form_for [post, @comment] do |f| %>
+  <%= f.label :say_something %>:
+  <%= f.text_field :body %>
+  <%= f.submit 'Submit' %>
+<% end %>
