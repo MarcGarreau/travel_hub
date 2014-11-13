@@ -9,7 +9,9 @@
           <div class="profile_nickname"><%= post.user.nickname %></div>
           <div class="date">
             <% if post.created_date != nil  %>
-              <%= "#{wordy_time(post)} at #{post.properties["place_name"]}" %>
+              <%= wordy_time(post) %><% unless post.properties["place_name"].nil? %>
+                <%= " at #{post.properties["place_name"]}" %>
+              <% end %>
             <% end %>
          </div>
         </div>
@@ -33,7 +35,7 @@
           <%= image_tag post.user.image, class:"profile_picture" %>
           <%= image_tag "twitter_icon.png", class:"social_logo" %>
           <div class="profile_nickname"><%= post.user.nickname %></div>
-          <div class="date"><%= "#{wordy_time(post) unless post["caption"] == nil} atTwitter #{post.properties["place_name"]}" %></div>
+          <div class="date"><%= "#{wordy_time(post)} on Twitter #{post.properties["place_name"]}" %></div>
         </div>
         <%= form_for post, :method => :patch do |f| %>
           <%= f.hidden_field :hide, :value => true %>
