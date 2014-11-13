@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   def feed
-    @posts   = current_user.posts.where(hide: false).sort_by { |post| post.properties["created_date"]}
+    @posts   = current_user.posts.where(hide: false).sort_by { |post| post.created_date }
     @comment = Comment.new
   end
 
