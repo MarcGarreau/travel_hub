@@ -1,0 +1,16 @@
+<% if post.source == "Twitter" %>
+  <div class="full_width">
+    <%= image_tag post.user.image, class:"profile_picture" %>
+    <div class="profile_nickname"><%= post.user.nickname %></div>
+    <div class="date"><%= "#{wordy_time(post) unless post["caption"] == nil} at #{post.properties["place_name"]}" %></div>
+  </div>
+  <%= form_tag(hidepost_path(post.id), method: :delete) do %>
+    <%= hidden_field_tag "id", post.id %>
+    <%= hidden_field_tag "method", "delete" %>
+    <%= submit_tag 'Show your post' %>
+  <% end %>
+  <div class="text"><%= post.properties["text"] %></div>
+  <% if post.properties["image_url"] %>
+    <div class="post_image" style="background-image: url(<%= post.properties['image_url'] %> );"></div>
+  <% end %>
+<% end %>
