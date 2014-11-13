@@ -8,18 +8,12 @@
           <div class="profile_nickname"><%= post.user.nickname %></div>
           <div class="date"><%= "#{wordy_time(post) unless post["caption"] == nil} ago at #{post.properties["place_name"]}" %></div>
         </div>
-        <% if post.hide %>
-          <%= form_tag(hidepost_path(post.id), method: :delete) do %>
-            <%= hidden_field_tag "id", post.id %>
-            <%= hidden_field_tag "method", "delete" %>
-            <%= submit_tag 'Show your post' %>
-          <% end %>
-        <% else %>
+
           <%= form_for post, :method => :patch do |f| %>
             <%= f.hidden_field :hide %>
             <%= f.submit value: "Hide Your Post", class: "hide-button" %>
           <% end %>
-        <% end %>
+        
         <div class="text"><%= post.properties["caption"] %></div>
         <div class="post_image" style="background-image: url(<%= post.properties['url'] %> );"></div>
 
@@ -29,6 +23,8 @@
           <div class="profile_nickname"><%= post.user.nickname %></div>
           <div class="date"><%= "#{wordy_time(post) unless post["caption"] == nil} ago at #{post.properties["place_name"]}" %></div>
         </div>
+
+
         <%= form_for post, :method => :patch do |f| %>
           <%= f.hidden_field :hide, :value => true %>
           <%= f.submit value: "Hide Your Post", class: "hide-button" %>
