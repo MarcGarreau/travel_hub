@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'hideposts/index'
+
   root to: 'welcome#home'
 
   get   'feed',                     to: 'posts#feed',       as: 'feed'
@@ -11,13 +13,16 @@ Rails.application.routes.draw do
   resources :menu, only: [:index]
   resources :trips
   resources :travelings
-  resources :post, only: [:index, :show] do
+  resources :hideposts
+  resources :posts do
     resources :comments
   end
   get '/profile/:id', to: 'profiles#show'
 
   namespace :api do
     namespace :v1 do
+      resources :users, only: [:index, :show]
+      resources :posts, only: [:index, :show]
       resources :trips, only: [:index, :show] do
         resources :posts, only: [:index, :show]
       end

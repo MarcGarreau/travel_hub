@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141110210138) do
+ActiveRecord::Schema.define(version: 20141112175052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20141110210138) do
     t.hstore   "properties"
     t.string   "source"
     t.string   "source_id"
-    t.boolean  "hide"
+    t.boolean  "hide",         default: false
     t.date     "created_date"
   end
 
