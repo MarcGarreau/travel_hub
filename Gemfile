@@ -43,4 +43,5 @@ group :test do
   gem 'vcr'
   gem 'webmock'
   gem 'launchy'
+  gem 'simplecov'
 end
