@@ -25,12 +25,14 @@ class TripsController < ApplicationController
 
     if @trip.save
       # create a row in the travels table for each post within the selected dates
-      start_date = params["trip"]["start_date"]
-      end_date   = params["trip"]["end_date"]
+      start_date = params["trip"]["start_date"].to_datetime
+      end_date   = params["trip"]["end_date"].to_datetime
       @trip.users.each do |user|
         user.posts.where.not(created_date: nil).each do |post|
-          if post.created_date >= start_date.to_datetime && post.created_date <= end_date.to_datetime
-            Travel.create!(post_id: post.id, trip_id: @trip.id)
+          if post.created_date >= start_date && post.created_date <= end_date
+            @trip.posts << post
+            #@trip.save
+            #Travel.create!(post_id: post.id, trip_id: @trip.id)
           end
         end
       end
