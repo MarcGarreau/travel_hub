@@ -6,7 +6,7 @@
         <div class="full_width">
           <%= image_tag post.user.image, class:"profile_picture" %>
           <div class="profile_nickname"><%= post.user.nickname %></div>
-          <div class="date"><%= "#{wordy_time(post) unless post.created_date == nil} ago at #{post.properties["place_name"]}" %></div>
+          <div class="date"><%= "#{wordy_time(post) unless post.created_date == nil} at #{post.properties["place_name"]}" %></div>
         </div>
         <% if post.hide %>
           <%= form_tag(hidepost_path(post.id), method: :delete) do %>
@@ -26,7 +26,7 @@
         <div class="full_width">
           <%= image_tag post.user.image, class:"profile_picture" %>
           <div class="profile_nickname"><%= post.user.nickname %></div>
-          <div class="date"><%= "#{wordy_time(post) unless post["caption"] == nil} ago at #{post.properties["place_name"]}" %></div>
+          <div class="date"><%= "#{wordy_time(post) unless post["caption"] == nil} at #{post.properties["place_name"]}" %></div>
         </div>
         <%= form_for post, :method => :patch do |f| %>
           <%= f.hidden_field :hide, :value => true %>
