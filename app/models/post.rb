@@ -18,7 +18,7 @@ class Post < ActiveRecord::Base
         new_post_attrs["latitude"]     = post["location"]["latitude"]
         new_post_attrs["place_name"]   = post["location"]["name"]
         new_post_attrs["url"]          = post["images"]["standard_resolution"]["url"]
-        new_post_attrs["caption"]      = post["caption"]["text"] unless post["caption"] == nil
+        new_post_attrs["caption"]      = post["caption"]["text"].to_s unless post["caption"] == nil
 
         new_post.properties   = new_post_attrs
         new_post.source       = "Instagram"
