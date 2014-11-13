@@ -6,7 +6,7 @@
         <div class="full_width">
           <%= image_tag post.user.image, class:"profile_picture" %>
           <div class="profile_nickname"><%= post.user.nickname %></div>
-          <div class="date"><%= "#{wordy_time(post) unless post["caption"] == nil} ago at #{post.properties["place_name"]}" %></div>
+          <div class="date"><%= "#{wordy_time(post)} at #{post.properties["place_name"]}" %></div>
         </div>
         <% if post.hide %>
           <%= form_tag(hidepost_path(post.id), method: :delete) do %>
