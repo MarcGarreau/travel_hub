@@ -5,19 +5,24 @@
   font-size: 5rem;
   font-weight: 600;
   width: 100%;
-  height: 7rem;
+  height: 9rem;
   background: gray;
   text-align: center;
-  position:fixed;
+  position: fixed;
   color: white;
 }
 .left_title {
   float:left;
-  width:50%;
+  width:35%;
+  margin-top: 5px;
 }
 .right_title {
   float:right;
-  width:50%;
+  width:65%;
+  height: 60px;
+}
+.add_user_button {
+
 }
 .touch_box {
   width: 150%;
@@ -89,8 +94,8 @@
 .friends_input {
   width: 80%;
   height: 12rem;
-  float:left;
-  color:orange;
+  float: left;
+  color: orange;
 }
 .friends_input_cleaner {
   height: 12rem;
