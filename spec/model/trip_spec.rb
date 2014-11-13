@@ -1,10 +1,10 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Trip, type: :model do
-  let(:trip) { Trip.create( id:          98,
-                            title:      "Vegas Baby! Baby? Uh oh.",
-                            start_date: "2014-10-30",
-                            end_date:   "2014-11-10")}
+  let(:trip) { Trip.create(id:          98,
+                           title:      "Vegas Baby! Baby? Uh oh.",
+                           start_date: "2014-10-30",
+                           end_date:   "2014-11-10") }
 
   it "is valid" do
     expect(trip).to be_valid
