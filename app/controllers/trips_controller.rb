@@ -43,7 +43,7 @@ class TripsController < ApplicationController
   end
 
   def show
-    @posts   = @trip.posts.where(hide: false).sort_by { |post| post.created_date }
+    @posts   = @trip.posts.where(hide: false).order("created_date DESC")
     @users   = User.all
     @comment = Comment.new
   end
