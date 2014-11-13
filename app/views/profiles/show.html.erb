@@ -1,8 +1,12 @@
-<%= image_tag @user.image %>
-<br/>
-<%= @user.nickname %>
-<br/>
-Part of <%= @user.trips.count %> trips.
-<br/>
-Member since <%= @user.created_at.to_datetime.strftime("%b %d, %Y") %>.
-
+<div class="profile_pic">
+  <%= image_tag @user.image %>
+  <p><strong>Username:</strong> <%= @user.nickname %></p>
+  <h3>Your Trips:</h3>
+  <% @trips.each do |trip| %>
+    <%= link_to trip, class: "link_to" do %>
+      <p>- <%= trip.title %></p>
+    <% end %>
+  <% end %>
+  <br/>
+  Member since <%= @user.created_at.to_datetime.strftime("%b %d, %Y") %>.
+</div>
