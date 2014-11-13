@@ -18,25 +18,11 @@ RSpec.describe TripsController, type: :controller do
 
   describe "POST create" do
     describe "with valid params" do
-      xit "saves the new trip in the database" do
+      it "saves the new trip in the database" do
+        stub_current_user
         trip_attributes
 
         expect { post :create, trip: @attributes}.to change(Trip, :count).by 1
-      end
-
-      xit "redirects to the trip's show page" do
-        trip_attributes
-        post :create, trip: @attributes
-
-        expect(response).to redirect_to feed_path
-      end
-    end
-
-    describe "with invalid params" do
-      xit "does not save the new trip in the database" do
-      end
-
-      xit "re-renders the :new template" do
       end
     end
   end
