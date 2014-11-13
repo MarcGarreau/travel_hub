@@ -5,6 +5,7 @@
       <% if post.source == "Instagram" %>
         <div class="full_width">
           <%= image_tag post.user.image, class:"profile_picture" %>
+          <%= image_tag "instagram_icon.png", class:"social_logo" %>
           <div class="profile_nickname"><%= post.user.nickname %></div>
           <div class="date"><%= "#{wordy_time(post) unless post["caption"] == nil} ago at #{post.properties["place_name"]}" %></div>
         </div>
@@ -26,6 +27,7 @@
       <% elsif post.source == "Twitter" %>
         <div class="full_width">
           <%= image_tag post.user.image, class:"profile_picture" %>
+          <%= image_tag "twitter_icon.png", class:"social_logo" %>
           <div class="profile_nickname"><%= post.user.nickname %></div>
           <div class="date"><%= "#{wordy_time(post) unless post["caption"] == nil} ago at #{post.properties["place_name"]}" %></div>
         </div>
